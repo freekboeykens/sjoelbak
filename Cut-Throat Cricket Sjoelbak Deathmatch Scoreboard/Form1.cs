@@ -12,22 +12,107 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
 {
     public partial class Form1 : Form
     {
+        private List<TextBox> _playerTextBoxes = new List<TextBox>();
+        private List<TextBox> _holeTextBoxes = new List<TextBox>();
+        private List<List<Button>> _hitButtons = new List<List<Button>>();
         private readonly List<Player> _players = new List<Player>();
         private readonly List<Hole> _holes = new List<Hole>();
         private readonly Scoreboard _board;
-        private readonly int _maxNumHits = 3;
+        private readonly int _maxNumHits;
 
-        public Form1()
+        public Form1(int numPlayers, int numHoles, int maxNumHits)
         {
-            _players.Add(new Player { Id = "Freek" });
-            _players.Add(new Player { Id = "Stefanie" });
+            _maxNumHits = maxNumHits;
 
-            _holes.Add(new Hole { Value = 20 });
-            _holes.Add(new Hole { Value = 19 });
+            for (int i = 0; i < numPlayers; ++i)
+            {
+                _players.Add(new Player { Id = $"Player {i + 1}" });
+            }
 
-            _board = new Scoreboard(_players, _holes, _maxNumHits);
+            for (int i = 0; i < numHoles; ++i)
+            {
+                _holes.Add(new Hole { Value = 20 - i });
 
-            InitializeComponent();
+                _board = new Scoreboard(_players, _holes, _maxNumHits);
+
+                InitializePlayerTextBoxes();
+                InitializeHoleTextBoxes();
+                InitializeComponent();
+            }
+        }
+
+        private void InitializePlayerTextBoxes()
+        {
+            var i = 0;
+
+            foreach (var player in _players)
+            {
+                var textBox = new TextBox
+                {
+                    BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80))))),
+                    Font = new System.Drawing.Font("Showcard Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point),
+                    ForeColor = System.Drawing.Color.Yellow,
+                    Location = new System.Drawing.Point(12, 135 + i * 120),
+                    Name = $"playerTextBox{i}",
+                    Size = new System.Drawing.Size(300, 100),
+                    TabIndex = 6,
+                    Text = player.Id,
+                    TextAlign = HorizontalAlignment.Center,
+                    BorderStyle = BorderStyle.None
+                };
+
+                textBox.TextChanged += (sender, e) => UpdatePlayerName(sender, e, player);
+
+                _playerTextBoxes.Add(textBox);
+                Controls.Add(textBox);
+
+                i++;
+            }
+        }
+
+        private void InitializeHoleTextBoxes()
+        {
+            var i = 0;
+
+            foreach (var hole in _holes)
+            {
+                var textBox = new TextBox
+                {
+                    BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80))))),
+                    Font = new System.Drawing.Font("Showcard Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point),
+                    ForeColor = System.Drawing.Color.Yellow,
+                    Location = new System.Drawing.Point(350 + i *100, 12),
+                    Name = $"holeTextBox{i}",
+                    Size = new System.Drawing.Size(100, 100),
+                    TabIndex = 6,
+                    Text = $"{hole.Value}",
+                    TextAlign = HorizontalAlignment.Center,
+                    BorderStyle = BorderStyle.None
+                };
+
+                textBox.TextChanged += (sender, e) => UpdateHoleValue(sender, e, hole);
+
+                _playerTextBoxes.Add(textBox);
+                Controls.Add(textBox);
+
+                i++;
+            }
+        }
+
+        private void UpdatePlayerName(object sender, EventArgs e, Player player)
+        {
+            if (sender is System.Windows.Forms.TextBox textBox)
+            {
+                player.Id = textBox.Text;
+            }
+        }
+
+        private void UpdateHoleValue(object sender, EventArgs e, Hole hole)
+        {
+            if (sender is System.Windows.Forms.TextBox textBox)
+            {
+                hole.Value = int.Parse(textBox.Text);
+            }
         }
 
         private void ButtonPlayer1Hole1_Click(object sender, EventArgs e)
@@ -73,6 +158,11 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
             {
                 button.Text += "X";
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

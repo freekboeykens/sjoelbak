@@ -1,4 +1,6 @@
-﻿namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
+﻿using System.Collections.Generic;
+
+namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
 {
     partial class Form1
     {
@@ -37,14 +39,15 @@
             this.Scores = new System.Windows.Forms.ListBox();
             this.labelHole1 = new System.Windows.Forms.Label();
             this.labelHole2 = new System.Windows.Forms.Label();
-            this.buttonPlayer1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelPlayer1
             // 
             this.labelPlayer1.AutoSize = true;
             this.labelPlayer1.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPlayer1.Location = new System.Drawing.Point(12, 48);
+            this.labelPlayer1.Location = new System.Drawing.Point(539, 518);
             this.labelPlayer1.Name = "labelPlayer1";
             this.labelPlayer1.Size = new System.Drawing.Size(76, 27);
             this.labelPlayer1.TabIndex = 1;
@@ -55,7 +58,7 @@
             // 
             this.labelPlayer2.AutoSize = true;
             this.labelPlayer2.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPlayer2.Location = new System.Drawing.Point(12, 111);
+            this.labelPlayer2.Location = new System.Drawing.Point(662, 518);
             this.labelPlayer2.Name = "labelPlayer2";
             this.labelPlayer2.Size = new System.Drawing.Size(104, 27);
             this.labelPlayer2.TabIndex = 1;
@@ -66,7 +69,7 @@
             // 
             this.ButtonPlayer1Hole1.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ButtonPlayer1Hole1.ForeColor = System.Drawing.Color.Red;
-            this.ButtonPlayer1Hole1.Location = new System.Drawing.Point(148, 42);
+            this.ButtonPlayer1Hole1.Location = new System.Drawing.Point(515, 259);
             this.ButtonPlayer1Hole1.Name = "ButtonPlayer1Hole1";
             this.ButtonPlayer1Hole1.Size = new System.Drawing.Size(80, 42);
             this.ButtonPlayer1Hole1.TabIndex = 2;
@@ -77,7 +80,7 @@
             // 
             this.ButtonPlayer1Hole2.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ButtonPlayer1Hole2.ForeColor = System.Drawing.Color.Red;
-            this.ButtonPlayer1Hole2.Location = new System.Drawing.Point(244, 42);
+            this.ButtonPlayer1Hole2.Location = new System.Drawing.Point(662, 259);
             this.ButtonPlayer1Hole2.Name = "ButtonPlayer1Hole2";
             this.ButtonPlayer1Hole2.Size = new System.Drawing.Size(80, 42);
             this.ButtonPlayer1Hole2.TabIndex = 2;
@@ -88,7 +91,7 @@
             // 
             this.ButtonPlayer2Hole1.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ButtonPlayer2Hole1.ForeColor = System.Drawing.Color.Red;
-            this.ButtonPlayer2Hole1.Location = new System.Drawing.Point(148, 105);
+            this.ButtonPlayer2Hole1.Location = new System.Drawing.Point(515, 341);
             this.ButtonPlayer2Hole1.Name = "ButtonPlayer2Hole1";
             this.ButtonPlayer2Hole1.Size = new System.Drawing.Size(80, 42);
             this.ButtonPlayer2Hole1.TabIndex = 2;
@@ -99,7 +102,7 @@
             // 
             this.ButtonPlayer2Hole2.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ButtonPlayer2Hole2.ForeColor = System.Drawing.Color.Red;
-            this.ButtonPlayer2Hole2.Location = new System.Drawing.Point(244, 105);
+            this.ButtonPlayer2Hole2.Location = new System.Drawing.Point(662, 341);
             this.ButtonPlayer2Hole2.Name = "ButtonPlayer2Hole2";
             this.ButtonPlayer2Hole2.Size = new System.Drawing.Size(80, 42);
             this.ButtonPlayer2Hole2.TabIndex = 2;
@@ -113,16 +116,16 @@
             this.Scores.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Scores.FormattingEnabled = true;
             this.Scores.ItemHeight = 27;
-            this.Scores.Location = new System.Drawing.Point(362, 12);
+            this.Scores.Location = new System.Drawing.Point(876, 12);
             this.Scores.Name = "Scores";
-            this.Scores.Size = new System.Drawing.Size(426, 382);
+            this.Scores.Size = new System.Drawing.Size(426, 571);
             this.Scores.TabIndex = 3;
             // 
             // labelHole1
             // 
             this.labelHole1.AutoSize = true;
             this.labelHole1.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHole1.Location = new System.Drawing.Point(173, 9);
+            this.labelHole1.Location = new System.Drawing.Point(642, 197);
             this.labelHole1.Name = "labelHole1";
             this.labelHole1.Size = new System.Drawing.Size(34, 27);
             this.labelHole1.TabIndex = 4;
@@ -133,42 +136,54 @@
             // 
             this.labelHole2.AutoSize = true;
             this.labelHole2.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHole2.Location = new System.Drawing.Point(271, 9);
+            this.labelHole2.Location = new System.Drawing.Point(718, 197);
             this.labelHole2.Name = "labelHole2";
             this.labelHole2.Size = new System.Drawing.Size(33, 27);
             this.labelHole2.TabIndex = 4;
             this.labelHole2.Text = "19";
             this.labelHole2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonPlayer1
+            // button3
             // 
-            this.buttonPlayer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80)))));
-            this.buttonPlayer1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonPlayer1.Font = new System.Drawing.Font("Showcard Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPlayer1.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonPlayer1.Location = new System.Drawing.Point(84, 247);
-            this.buttonPlayer1.Name = "buttonPlayer1";
-            this.buttonPlayer1.Size = new System.Drawing.Size(281, 106);
-            this.buttonPlayer1.TabIndex = 5;
-            this.buttonPlayer1.Text = "Player 1";
-            this.buttonPlayer1.UseVisualStyleBackColor = false;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80)))));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button3.Font = new System.Drawing.Font("Showcard Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.Yellow;
+            this.button3.Location = new System.Drawing.Point(358, 135);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(156, 106);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Player 1";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80)))));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button4.Font = new System.Drawing.Font("Showcard Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.ForeColor = System.Drawing.Color.Yellow;
+            this.button4.Location = new System.Drawing.Point(529, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(147, 106);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Player 1";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonPlayer1);
-            this.Controls.Add(this.Scores);
+            this.ClientSize = new System.Drawing.Size(1314, 658);
+            this.Controls.Add(this.labelPlayer1);
+            this.Controls.Add(this.labelPlayer2);
             this.Controls.Add(this.labelHole2);
             this.Controls.Add(this.labelHole1);
-            this.Controls.Add(this.ButtonPlayer2Hole2);
-            this.Controls.Add(this.ButtonPlayer1Hole2);
-            this.Controls.Add(this.labelPlayer2);
-            this.Controls.Add(this.ButtonPlayer2Hole1);
             this.Controls.Add(this.ButtonPlayer1Hole1);
-            this.Controls.Add(this.labelPlayer1);
+            this.Controls.Add(this.ButtonPlayer1Hole2);
+            this.Controls.Add(this.ButtonPlayer2Hole1);
+            this.Controls.Add(this.ButtonPlayer2Hole2);
+            this.Controls.Add(this.Scores);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cut-Throat Cricket Sjoelbak Deathmatch Scoreboard 2020";
@@ -189,7 +204,8 @@
         private System.Windows.Forms.ListBox Scores;
         private System.Windows.Forms.Label labelHole1;
         private System.Windows.Forms.Label labelHole2;
-        private System.Windows.Forms.Button buttonPlayer1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 
