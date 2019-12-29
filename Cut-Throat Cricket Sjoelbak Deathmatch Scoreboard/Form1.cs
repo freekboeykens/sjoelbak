@@ -12,7 +12,6 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
 {
     public partial class Form1 : Form
     {
-        private readonly List<string> _ranking = new List<string>();
         private readonly List<Player> _players = new List<Player>();
         private readonly List<Hole> _holes = new List<Hole>();
         private readonly Scoreboard _board;
@@ -30,16 +29,14 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
             for (int i = 0; i < numHoles; ++i)
             {
                 _holes.Add(new Hole { Value = 20 - i });
-
-                _board = new Scoreboard(_players, _holes, _maxNumHits);
-
-                InitializePlayerTextBoxes();
-                InitializeHoleTextBoxes();
-                InitializeHitButtons();
-                InitializeComponent();
-
-                listBox1.DataSource = _ranking;
             }
+
+            _board = new Scoreboard(_players, _holes, _maxNumHits);
+
+            InitializePlayerTextBoxes();
+            InitializeHoleTextBoxes();
+            InitializeHitButtons();
+            InitializeComponent();
         }
 
         private void InitializePlayerTextBoxes()
@@ -51,7 +48,7 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
                 {
                     BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80))))),
                     Font = new System.Drawing.Font("Showcard Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point),
-                    ForeColor = System.Drawing.Color.Yellow,
+                    ForeColor = System.Drawing.Color.Gold,
                     Location = new System.Drawing.Point(12, 135 + i * 120),
                     Size = new System.Drawing.Size(300, 100),
                     TabIndex = 6,
@@ -75,8 +72,8 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
                 {
                     BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80))))),
                     Font = new System.Drawing.Font("Showcard Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point),
-                    ForeColor = System.Drawing.Color.Yellow,
-                    Location = new System.Drawing.Point(350 + i *120, 12),
+                    ForeColor = System.Drawing.Color.Gold,
+                    Location = new System.Drawing.Point(350 + i * 120, 40),
                     Size = new System.Drawing.Size(100, 100),
                     TabIndex = 6,
                     Text = $"{hole.Value}",
@@ -103,13 +100,13 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
                     {
                         BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80))))),
                         Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point),
-                        ForeColor = System.Drawing.Color.Red,
-                        Location = new System.Drawing.Point(350 + h * 120, 135 + p * 120),
-                        Size = new System.Drawing.Size(80, 42),
+                        ForeColor = System.Drawing.Color.Tomato,
+                        Location = new System.Drawing.Point(360 + h * 120, 145 + p * 120),
+                        Size = new System.Drawing.Size(80, 40),
                         TabIndex = 2,
                         UseVisualStyleBackColor = true
                     };
-                    
+
                     button.Click += (sender, e) => HitButtonClick(sender, e, player, hole);
                     Controls.Add(button);
                 }
@@ -120,7 +117,7 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
         {
             if (sender is TextBox textBox)
             {
-                player.Name = textBox.Text;
+                player.Name = textBox.Text.PadRight(16);
             }
         }
 
@@ -142,26 +139,26 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
                 }
 
                 UpdateScore(_board.AddHit(player, hole));
-
-                listBox1.DataSource = null;
-                listBox1.DataSource = _ranking;
             }
         }
 
         private void UpdateScore(List<(Player, int)> scores)
         {
-            _ranking.Clear();
+            var indices = new List<string>();
+            var names = new List<string>();
+            var points = new List<string>();
             var rank = 1;
 
             foreach (var score in scores)
             {
-                _ranking.Add($"{rank++}    {score.Item1.Name}\t{score.Item2}");
+                indices.Add($"{rank++}");
+                names.Add(score.Item1.Name);
+                points.Add($"{score.Item2}");
             }
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            listBox1.DataSource = new List<string> { "test1", "test2" };
+            rankingIndices.DataSource = indices;
+            rankingNames.DataSource = names;
+            rankingScores.DataSource = points;
         }
     }
 }
