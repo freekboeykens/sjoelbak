@@ -37,6 +37,7 @@
             this.Scores = new System.Windows.Forms.ListBox();
             this.labelHole1 = new System.Windows.Forms.Label();
             this.labelHole2 = new System.Windows.Forms.Label();
+            this.buttonPlayer1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelPlayer1
@@ -107,12 +108,14 @@
             // 
             // Scores
             // 
+            this.Scores.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Scores.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Scores.FormattingEnabled = true;
             this.Scores.ItemHeight = 27;
-            this.Scores.Location = new System.Drawing.Point(526, 15);
+            this.Scores.Location = new System.Drawing.Point(362, 12);
             this.Scores.Name = "Scores";
-            this.Scores.Size = new System.Drawing.Size(262, 409);
+            this.Scores.Size = new System.Drawing.Size(426, 382);
             this.Scores.TabIndex = 3;
             // 
             // labelHole1
@@ -137,11 +140,27 @@
             this.labelHole2.Text = "19";
             this.labelHole2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonPlayer1
+            // 
+            this.buttonPlayer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80)))));
+            this.buttonPlayer1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonPlayer1.Font = new System.Drawing.Font("Showcard Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPlayer1.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonPlayer1.Location = new System.Drawing.Point(84, 247);
+            this.buttonPlayer1.Name = "buttonPlayer1";
+            this.buttonPlayer1.Size = new System.Drawing.Size(281, 106);
+            this.buttonPlayer1.TabIndex = 5;
+            this.buttonPlayer1.Text = "Player 1";
+            this.buttonPlayer1.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonPlayer1);
+            this.Controls.Add(this.Scores);
             this.Controls.Add(this.labelHole2);
             this.Controls.Add(this.labelHole1);
             this.Controls.Add(this.ButtonPlayer2Hole2);
@@ -149,10 +168,11 @@
             this.Controls.Add(this.labelPlayer2);
             this.Controls.Add(this.ButtonPlayer2Hole1);
             this.Controls.Add(this.ButtonPlayer1Hole1);
-            this.Controls.Add(this.Scores);
             this.Controls.Add(this.labelPlayer1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cut-Throat Cricket Sjoelbak Deathmatch Scoreboard 2020";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +189,7 @@
         private System.Windows.Forms.ListBox Scores;
         private System.Windows.Forms.Label labelHole1;
         private System.Windows.Forms.Label labelHole2;
+        private System.Windows.Forms.Button buttonPlayer1;
     }
 }
 
