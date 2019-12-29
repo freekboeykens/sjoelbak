@@ -6,7 +6,9 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
 {
     public class Player
     {
-        public string Id { get; set; }
+        public Guid Id { get; } = Guid.NewGuid();
+
+        public string Name { get; set; }
 
         public override bool Equals(object obj)
         {
