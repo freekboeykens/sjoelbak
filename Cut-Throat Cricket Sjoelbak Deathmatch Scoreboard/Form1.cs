@@ -12,6 +12,7 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
 {
     public partial class Form1 : Form
     {
+        private readonly List<string> _ranking = new List<string>();
         private readonly List<Player> _players = new List<Player>();
         private readonly List<Hole> _holes = new List<Hole>();
         private readonly Scoreboard _board;
@@ -36,6 +37,8 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
                 InitializeHoleTextBoxes();
                 InitializeHitButtons();
                 InitializeComponent();
+
+                listBox1.DataSource = _ranking;
             }
         }
 
@@ -139,20 +142,26 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
                 }
 
                 UpdateScore(_board.AddHit(player, hole));
+
+                listBox1.DataSource = null;
+                listBox1.DataSource = _ranking;
             }
         }
 
         private void UpdateScore(List<(Player, int)> scores)
         {
-            var text = new List<string>();
+            _ranking.Clear();
             var rank = 1;
 
             foreach (var score in scores)
             {
-                text.Add($"{rank++}    {score.Item1.Name}\t{score.Item2}");
+                _ranking.Add($"{rank++}    {score.Item1.Name}\t{score.Item2}");
             }
+        }
 
-            Scores.DataSource = text;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listBox1.DataSource = new List<string> { "test1", "test2" };
         }
     }
 }
