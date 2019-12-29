@@ -35,6 +35,7 @@
             this.ButtonPlayer1Hole2 = new System.Windows.Forms.Button();
             this.ButtonPlayer2Hole1 = new System.Windows.Forms.Button();
             this.ButtonPlayer2Hole2 = new System.Windows.Forms.Button();
+            this.Scores = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -75,6 +76,7 @@
             this.ButtonPlayer1Hole1.TabIndex = 2;
             this.ButtonPlayer1Hole1.Text = "20";
             this.ButtonPlayer1Hole1.UseVisualStyleBackColor = true;
+            this.ButtonPlayer1Hole1.Click += new System.EventHandler(this.ButtonPlayer1Hole1_Click);
             // 
             // ButtonPlayer1Hole2
             // 
@@ -85,6 +87,7 @@
             this.ButtonPlayer1Hole2.TabIndex = 2;
             this.ButtonPlayer1Hole2.Text = "19";
             this.ButtonPlayer1Hole2.UseVisualStyleBackColor = true;
+            this.ButtonPlayer1Hole2.Click += new System.EventHandler(this.ButtonPlayer1Hole2_Click);
             // 
             // ButtonPlayer2Hole1
             // 
@@ -95,6 +98,7 @@
             this.ButtonPlayer2Hole1.TabIndex = 2;
             this.ButtonPlayer2Hole1.Text = "20";
             this.ButtonPlayer2Hole1.UseVisualStyleBackColor = true;
+            this.ButtonPlayer2Hole1.Click += new System.EventHandler(this.ButtonPlayer2Hole1_Click);
             // 
             // ButtonPlayer2Hole2
             // 
@@ -105,12 +109,23 @@
             this.ButtonPlayer2Hole2.TabIndex = 2;
             this.ButtonPlayer2Hole2.Text = "19";
             this.ButtonPlayer2Hole2.UseVisualStyleBackColor = true;
+            this.ButtonPlayer2Hole2.Click += new System.EventHandler(this.ButtonPlayer2Hole2_Click);
+            // 
+            // Scores
+            // 
+            this.Scores.FormattingEnabled = true;
+            this.Scores.ItemHeight = 15;
+            this.Scores.Location = new System.Drawing.Point(526, 60);
+            this.Scores.Name = "Scores";
+            this.Scores.Size = new System.Drawing.Size(233, 334);
+            this.Scores.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Scores);
             this.Controls.Add(this.ButtonPlayer2Hole2);
             this.Controls.Add(this.LabelPlayer2);
             this.Controls.Add(this.ButtonPlayer2Hole1);
@@ -134,6 +149,7 @@
         private System.Windows.Forms.Button ButtonPlayer1Hole2;
         private System.Windows.Forms.Button ButtonPlayer2Hole1;
         private System.Windows.Forms.Button ButtonPlayer2Hole2;
+        private System.Windows.Forms.ListBox Scores;
     }
 }
 

@@ -12,10 +12,51 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
 {
     public partial class Form1 : Form
     {
+        private readonly List<Player> _players = new List<Player>();
+        private readonly List<Hole> _holes = new List<Hole>();
+        private readonly Scoreboard _board;
+
         public Form1()
         {
+            _players.Add(new Player { Id = "Freek" });
+            _players.Add(new Player { Id = "Stefanie" });
+
+            _holes.Add(new Hole { Value = 20 });
+            _holes.Add(new Hole { Value = 19 });
+
+            _board = new Scoreboard(_players, _holes, 3);
+
             InitializeComponent();
         }
 
+        private void ButtonPlayer1Hole1_Click(object sender, EventArgs e)
+        {
+            var score = _board.AddHit(_players[0], _holes[0]);
+            UpdateScore(score);
+        }
+
+        private void ButtonPlayer1Hole2_Click(object sender, EventArgs e)
+        {
+            var score = _board.AddHit(_players[0], _holes[1]);
+            UpdateScore(score);
+        }
+
+        private void ButtonPlayer2Hole1_Click(object sender, EventArgs e)
+        {
+            var score = _board.AddHit(_players[1], _holes[0]);
+            UpdateScore(score);
+        }
+
+        private void ButtonPlayer2Hole2_Click(object sender, EventArgs e)
+        {
+            var score = _board.AddHit(_players[1], _holes[1]);
+            UpdateScore(score);
+        }
+
+        private void UpdateScore(List<(Player, int)> scores)
+        {
+            var text = scores.Select(s => $"{s.Item1.Id}\t{s.Item2}\n").ToList();
+            Scores.DataSource = text;
+        }
     }
 }
