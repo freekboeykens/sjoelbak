@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.labelPlayer1 = new System.Windows.Forms.Label();
             this.labelPlayer2 = new System.Windows.Forms.Label();
             this.ButtonPlayer1Hole1 = new System.Windows.Forms.Button();
@@ -39,15 +38,6 @@
             this.labelHole1 = new System.Windows.Forms.Label();
             this.labelHole2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(512, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(8, 8);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
             // 
             // labelPlayer1
             // 
@@ -161,7 +151,6 @@
             this.Controls.Add(this.ButtonPlayer1Hole1);
             this.Controls.Add(this.Scores);
             this.Controls.Add(this.labelPlayer1);
-            this.Controls.Add(this.richTextBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -171,7 +160,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label labelPlayer1;
         private System.Windows.Forms.Label labelPlayer2;
         private System.Windows.Forms.Button ButtonPlayer1Hole1;

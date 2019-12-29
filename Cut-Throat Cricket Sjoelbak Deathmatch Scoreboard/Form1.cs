@@ -61,8 +61,7 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
 
             foreach (var score in scores)
             {
-                var name = score.Item1.Id.PadRight(16);
-                text.Add($"{rank++}    {name}{score.Item2}");
+                text.Add($"{rank++}    {score.Item1.Id}\t{score.Item2}");
             }
 
             Scores.DataSource = text;
