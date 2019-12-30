@@ -43,7 +43,7 @@ namespace Cut_Throat_Cricket_Sjoelbak_Deathmatch_Scoreboard
         {
             _hits[(player, hole)]++;  // update # hits for this player
 
-            if (_hits[(player, hole)] >= _maxNumHits)
+            if (_hits[(player, hole)] > _maxNumHits)
             {
                 UpdateScores(hole);
             }
